@@ -3,7 +3,7 @@
 VunLink is Auto Web Vulnerability Scanning Framework<br><br>
 Code by HaHwul [www.codeblack.net]
 
-###Usage
+##Usage
 Usage: # [options]<br>
   -s # Run Web Server<br>
      + -s [port]<br>
@@ -16,7 +16,9 @@ Usage: # [options]<br>
   -c # Check Run<br>
 
 
-###Install
+##Install
+###git clone https://github.com/hahwul/VunLink.git
+
 apt-get install sqlite3<br>
 apt-get install ruby-sqlite3<br>
 gem install webrick<br>
