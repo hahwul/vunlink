@@ -7,9 +7,9 @@ VunLink is Auto Web Vulnerability Scanning Framework
 
 
 ###Install
-apt-get install sqlite3
-apt-get install ruby-sqlite3
-gem install webrick
-gem install sqlite3
+apt-get install sqlite3<br>
+apt-get install ruby-sqlite3<br>
+gem install webrick<br>
+gem install sqlite3<br>
 
 
