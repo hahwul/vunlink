@@ -1,0 +1,23 @@
+require 'sqlite3'
+
+
+$report_path = File.dirname(__FILE__)+"/../report/"
+$approot_path = File.dirname(__FILE__)+"/../"
+$core_path = File.dirname(__FILE__)
+dbFile_path = File.dirname(__FILE__)+"/../data/scanq.sdb"
+$db = SQLite3::Database.new(dbFile_path)
+
+
+=begin
+CREATE TABLE `scan_list` (
+  `scan_no` INT NOT NULL,
+  `scan_name` VARCHAR(150) NOT NULL,
+  `scan_url` VARCHAR(200) NOT NULL,
+  `scan_type` VARCHAR(45) NOT NULL,
+  `scan_state` VARCHAR(45) NULL,
+  `scan_report_path` MEDIUMTEXT NULL,
+  PRIMARY KEY (`scan_no`));
+=end
+
+
+
