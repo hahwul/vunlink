@@ -1,8 +1,8 @@
 # VunLink
 ###Auto Web Vulnerability Scanning Framework<br>
-> VunLink is Auto Web Vulnerability Scanning Framework<br><br>
-Code by HaHwul [www.codeblack.net]<br>
-[ http://www.codeblack.net/p/vullink.html ]
+VunLink is Auto Web Vulnerability Scanning Framework<br><br>
+> Code by HaHwul [www.codeblack.net]<br>
+> http://www.codeblack.net/p/vunlink.html
 
 ##Usage
 Usage: # [options]<br>
