@@ -18,11 +18,14 @@ Usage: # [options]<br>
 
 
 ##Install
-###git clone https://github.com/hahwul/VunLink.git
+1. Download VunLink
+> git clone https://github.com/hahwul/VunLink.git
 
-apt-get install sqlite3<br>
-apt-get install ruby-sqlite3<br>
-gem install webrick<br>
-gem install sqlite3<br>
+
+2. Install 3rd Packages
+> apt-get install sqlite3<br>
+> apt-get install ruby-sqlite3<br>
+> gem install webrick<br>
+> gem install sqlite3<br>
 
 
