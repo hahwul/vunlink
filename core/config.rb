@@ -1,4 +1,5 @@
 require 'sqlite3'
+require 'fileutils'
 
 
 $report_path = File.dirname(__FILE__)+"/../report/"

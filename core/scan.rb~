@@ -9,31 +9,21 @@ scan_no = ARGV[1]
 scan_report_path = ARGV[2]
 
 case mode
-
-
 when "check" 
+#이부분은 ???
 
 when "loop"
-
+#이부분에선 들어온 scan_no를 fin 처리하고 추가 돌릴 스캔이 있는지 확인 후 돌림
+	scan_fin(scan_no,scan_report_path) #Finish Proc
+	running = scan_check("run") #Rdy Scan Check
+	if(running == 0)
+		rows = $db.execute("select scan_no from scan_list where scan_state='rdy' order by scan_no DESC limit 1")
+		no = rows[0][0]
+		#Run Scan
+		scan_run(no)
+	else
+		puts "End Scan Queue"
+	end
 else
+	puts "Not Method"
 end
-
-
-rows = $db.execute("select scan_name, scan_url from scan_list where scan_no ='#{scan_no}'")
-
-
-#pid = IO.popen("sleep 10;ruby #{$myscriptroot}/endScan.rb #{no} report/#{myJob_path}","w+")
-
-rows = $db.execute( "select * from scan_list" )
-
-scan_rdy = scan_check("rdy")
-scan_run = scan_check("run")
-
-if scan_rdy == -1
-# Add scan
-# Run scan -> #run this file
-else
-# Run scan -> #run this file
-end
-
-

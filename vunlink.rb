@@ -1,4 +1,3 @@
-
 load File.dirname(__FILE__)+'/core/config.rb'
 load File.dirname(__FILE__)+'/core/scanlib.rb'
 
@@ -15,8 +14,20 @@ when "-s"
 		                          :Port => ARGV[1]})
 	server.mount('/', WEBrick::HTTPServlet::FileHandler, Dir.pwd+'/web_view',
 		            {:FancyIndexing => true})
-	server.mount('/report', WEBrick::HTTPServlet::FileHandler, Dir.pwd+'/web_view/report',
+	server.mount('/report/', WEBrick::HTTPServlet::FileHandler, Dir.pwd+'/web_view/report/',
 		            {:FancyIndexing => true})
+	server.mount_proc '/add' do |req,res|    #Add page
+				res['Content-Type'] = "text/html"
+				res['Content-Type'] = "text/html"
+				res.body =wscan_list().to_s
+				end
+	server.mount_proc '/list' do |req,res|    #List page
+				res['Content-Type'] = "text/html"
+				res.body ='CODEBLACK'+wscan_list().to_s
+				end
+	server.mount_proc '/add_q' do |req,res|    #Add page
+				res.body ='CODEBLACK'+wscan_list().to_s
+				end
 	trap(:INT){server.shutdown}
 	server.start
 	else
@@ -24,18 +35,27 @@ when "-s"
 	usage()
 	end
 when "-a"
+	rows=nil
 	if ARGV.length == 4
-	rows = $db.execute( "select scan_no from scan_list order by scan_no DESC limit 1" )
-	new_no = rows[0][0]
-	new_no += 1
+	rows = $db.execute("select scan_no from scan_list order by scan_no DESC limit 1")
+	if rows.size == 0
+		new_no = 1
+	else
+		new_no = rows[0][0]
+		new_no += 1
+	end
 	puts "[ADD] Scan Queue NO :: "+new_no.to_s
 	scan_name = ARGV[1]
 	scan_url = ARGV[2]
 	scan_type = ARGV[3]
 	#Push Scan
 	scan_add(new_no,scan_name,scan_url,scan_type)
-	#Run Scan
-	scan_run(new_no)
+	#Check Run Scan
+	running = scan_check("run")
+	if running == 0
+		#Run Scan
+		scan_run(new_no)
+	end
 	else
 	puts "\n[ERROR][SCAN ADD] Invalid Argument\n\n"
 	usage()
@@ -52,7 +72,13 @@ when "-d"
 	end
 when "-c"
 	#check run
-	scan_run(1)
+	rows = $db.execute("select scan_no from scan_list order by scan_no DESC limit 1")
+	print rows.size
+	if rows.size == 0
+		puts "Null"
+	else
+		puts "Not Null"
+	end
 else
 	usage()
 end
