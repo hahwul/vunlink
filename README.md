@@ -4,10 +4,10 @@ VunLink is Auto Web Vulnerability Scanning Framework<br><br>
 > Code by HaHwul [www.codeblack.net]<br>
 > http://www.codeblack.net/p/vunlink.html
 
-> Include Program / Project
-> 1. google skipfish
->   + apt-get install skipfish
-> 2. ruby WEBrick
+> Include Program / Project<br>
+> 1. google skipfish<br>
+> [ apt-get install skipfish ] <br>
+> 2. ruby WEBrick<br>
 
 ##Usage
 Usage: # [options]<br>
