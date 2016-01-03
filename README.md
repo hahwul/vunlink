@@ -21,11 +21,9 @@ Usage: # [options]<br>
   -d # Delete Scan List<br>
   -c # Check Run<br>
 
-
 ##Install
 1. Download VunLink
 > git clone https://github.com/hahwul/VunLink.git
-
 
 2. Install 3rd Packages
 > apt-get install sqlite3<br>
