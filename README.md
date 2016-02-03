@@ -1,8 +1,7 @@
 # VunLink
 ###Auto Web Vulnerability Scanning Framework<br>
 VunLink is Auto Web Vulnerability Scanning Framework<br><br>
-> Code by HaHwul [www.codeblack.net]<br>
-> http://www.codeblack.net/p/vunlink.html
+> Code by HaHwul [www.hahwul.com]<br>
 
 > Include Program / Project<br>
 > 1. google skipfish<br>
